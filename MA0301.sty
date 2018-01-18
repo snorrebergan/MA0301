@@ -22,11 +22,27 @@
     			stretch=10,
     			shrink=10]{microtype} \LoadMicrotypeFile{bch}
     \microtypecontext{spacing=nonfrench} 
+
+
+% ===================================
+% Tables
+% ===================================
+    \usepackage{booktabs}
+    \usepackage{array}   % for \newcolumntype macro
+    \newcolumntype{L}{>{$}c<{$}} % math-mode version of "l" column type
+    
+% ===================================
+% Algorithms
+% ===================================
+    \usepackage{algorithm}
+    \usepackage{algorithmic}
     
 % ===================================
 % Mathematics
 % ===================================
-    \usepackage{amsmath, amssymb, amsthm, mathtools}   % Mijøer og verktøy for å skrive matematikk
+    \usepackage{amsmath, amssymb, amsthm, mathtools}   % Mijøer og verktøy for å
+    % skrive matematikk
+    \usepackage{bm}
     \let\div\relax
     \DeclareMathOperator{\div}{div}
     % \DeclareMathOperator{\curl}{curl}
@@ -77,7 +93,7 @@
     
     \cfoot{\today}
     \rfoot{Side \thepage\ av \pageref{LastPage}}
-    \lhead{MA1103 Flerdimensjonal analyse, vår 2018}
+    \lhead{MA0301 Elementær diskre matematikk, vår 2018}
     
     \fancypagestyle{plain}{% Redefine ``plain'' style for chapter boundaries  
       \fancyhf{} % clear all header and footer fields  
@@ -96,8 +112,14 @@
 % Problems 
 % ===================================
     \usepackage{xparse}
+    \usepackage{comment}
     \newcounter{problem}
     \newcounter{problemMA1103}
+
+    
+    % \includecomment{sol}
+    % \excludecomment{solution}
+    
     
     %\DeclareDocumentCommand{\oppgave}{o}{Oppgave~\stepcounter{problemMA1103}\arabic{problemMA1103}}
     
@@ -116,6 +138,7 @@
     % Changes the style for enumerate
     \usepackage{enumitem}
     \setlist[enumerate, 2]{wide, labelwidth=!, labelindent=0pt, label=\textbf{\alph*)}}
+    \setlist[enumerate, 1]{leftmargin=-\labelsep*}
 
 
 \NewDocumentEnvironment{problem}{o}{%
@@ -187,4 +210,4 @@
     }
     \end{center}
     }
-    
+

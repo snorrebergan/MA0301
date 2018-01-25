@@ -127,6 +127,9 @@ acs-*.bib
 *.ind
 *.ist
 
+# Comment files
+*.cut
+
 # minitoc
 *.maf
 *.mlf

@@ -1,0 +1,302 @@
+\documentclass[a4paper, english, 12pt]{article} % norsk & english is supported
+
+\newcommand{\exerciseNumber}{1}
+\newcommand{\solutions}{true} % Change to   true   to create solutions
+% Must be defined before course package, \exerciseNumber, and \solutions
+\usepackage{IMF}
+
+\usepackage{MA0301}
+
+
+\begin{document}
+
+\titlebox
+
+\seksjon{2.1}
+
+\begin{problem}[3]
+  Let $p$, $q$ be the primitive statements for which the implication $p \to q$
+  false. Determine the truth values for each of the following:
+\end{problem}
+
+\begin{subproblem}[2]
+  $\neg p \vee q$
+\end{subproblem}
+
+\begin{answer}
+  The implication $p \to q$ is only false when $p$ is True and $q$ is
+  False. Thus, $\neg p \vee q$ is False (or $0$).
+\end{answer}
+
+\begin{subproblem}[4]
+  $\neg q \to \neg p$
+\end{subproblem}
+
+\begin{answer}
+  This is just the same staten written as a contrapositive. $\neg q$ = True and
+  $\neg p$ = False. Thus, the statement is False (or $0$).
+\end{answer}
+
+\begin{problem}[8]
+  Construct a truth table for each of the following compounded statements, where
+  $p$, $q$, $r$ denote primitive statements.
+\end{problem}
+
+\begin{subproblem}
+  $(p \to q) \to (q \to p)$
+\end{subproblem}
+
+\begin{answer}
+  \begin{tabular}{L L L L L}
+    \toprule
+    p & q & (p \to q) & (q \to p) & (p \to q) \to (q \to p) \\
+    \midrule
+    \F & \F & \T & \T & \T \\
+    \F & \T & \T & \F & \F \\
+    \T & \F & \F & \T & \T \\
+    \T & \T & \T & \T & \T \\
+    \bottomrule
+  \end{tabular}
+\end{answer}
+%
+
+\begin{subproblem}
+  $[p \wedge (p \to q)] \to q$ 
+\end{subproblem}
+
+\begin{answer}
+  \begin{tabular}{L L L L L}
+    \toprule
+    p & q & (p \to q) & [p\wedge(p\to q)] & [p \wedge (p \to q)] \to q \\
+    \midrule
+    \F & \F & \T & \F & \T \\
+    \F & \T & \T & \F & \T \\
+    \T & \F & \F & \F & \T \\
+    \T & \T & \T & \T & \T \\
+    \bottomrule
+  \end{tabular}
+\end{answer}
+
+\begin{subproblem}
+  $(p \wedge q) \to p$ 
+\end{subproblem}
+
+\begin{answer}
+  \begin{tabular}{L L L L}
+    \toprule
+    p & q & (p \wedge q) & (p \wedge q) \to p\\
+    \midrule
+    \F & \F & \F & \T \\
+    \F & \T & \F & \T \\
+    \T & \F & \F & \T \\
+    \T & \T & \T & \T \\
+    \bottomrule
+  \end{tabular}
+\end{answer}
+  
+\begin{subproblem}
+  $q \leftrightarrow (\neg p \vee \neg q)$ 
+\end{subproblem}
+
+\begin{answer}
+  \begin{tabular}{L L L L}
+    \toprule
+    p & q & (\neg p \vee \neg q) & q \leftrightarrow (\neg p \vee \neg q) \\
+    \midrule
+    \F & \F & \T & \F \\
+    \F & \T & \T & \F \\
+    \T & \F & \T & \F \\
+    \T & \T & \F & \F \\
+    \bottomrule
+  \end{tabular}
+\end{answer}
+  
+\begin{subproblem}
+  $[(p \to q) \wedge (q \to r)] \to (p \to r)$
+\end{subproblem}
+
+\begin{answer}
+  \begin{tabular}{L L L L L L L}
+    \toprule
+    p & q & r & (p \to q) & (p \to r) & (q \to r) & [(p \to q) \wedge (q \to r)] \to (p \to r)\\
+    \midrule
+    \F & \F & \F & \T & \T & \T & \F \\
+    \F & \F & \T & \T & \T & \T & \T \\
+    \F & \T & \F & \T & \T & \F & \T \\
+    \F & \T & \T & \T & \T & \T & \T \\
+    \T & \F & \F & \F & \F & \T & \T \\
+    \T & \F & \T & \F & \T & \F & \T \\
+    \T & \T & \F & \T & \F & \T & \F \\
+    \T & \T & \T & \T & \T & \T & \T \\
+    \bottomrule
+  \end{tabular}
+\end{answer}
+  
+\begin{problem}[15]
+  The integer variables $m$ and $n$ are assigned the values $3$ and $8$,
+  respectively, during the execution of a program. Each of the following
+  \emph{successive} statements is then encountered during program execution.
+  What are the values of $m$, $n$ after each of these statements are
+  encountered?
+\end{problem}
+  
+\begin{subproblem}
+  \begin{algorithmic}
+    \STATE \IF{$n - m = 5$} \STATE $n := n - 2$ \ENDIF
+  \end{algorithmic}
+\end{subproblem}
+
+\begin{answer}
+  $m = 3$ and $n = 8  - 2 = 6$
+\end{answer}
+
+\begin{subproblem}
+  \begin{algorithmic}
+    \STATE \IF{$(2*m = n)$ \AND $(\lfloor n/4 \rfloor = 1)$}
+    \STATE $n := 4 * m - 3$ \ENDIF
+  \end{algorithmic}
+\end{subproblem}
+
+\begin{answer}
+    $m = 3$ and $n = 4\cdot 3 - 3 = 9$.
+\end{answer}
+    
+\begin{subproblem}
+  \begin{algorithmic}
+    \STATE \IF{$(n < 8)$ \OR $(\lfloor m/2 \rfloor = 3)$}
+    \STATE $n := 4 * m - 3$
+    \ELSE
+    \STATE $m = 2*n$
+    \ENDIF
+  \end{algorithmic}
+\end{subproblem}
+
+\begin{answer}
+  Neither of the conditions are true. Thus,  $m = 2\cdot 9 = 18$ and $n=9$.
+\end{answer}
+  
+\begin{subproblem}
+  \begin{algorithmic}
+    \STATE
+    \IF{$(m < 20)$ \AND $(\lfloor n/6 \rfloor = 1)$}
+    \STATE $m := m - n - 5$
+    \ENDIF
+  \end{algorithmic}
+\end{subproblem}
+
+\begin{answer}
+  Both conditions holds, thus $m = 18 - 9 - 5 = 4$ and $n = 9$.
+\end{answer}
+
+\begin{subproblem}
+  \begin{algorithmic}
+    \STATE \IF{$((n = 2 * m)$ \OR $(\lfloor n/2\rfloor = 5))$}
+    \STATE $n := 4 * m - 3$ \ENDIF
+  \end{algorithmic}
+\end{subproblem}
+
+\begin{answer}
+  Neither conditions holds, thus $m = 4$ and $n = 9$.
+\end{answer}
+
+\seksjon{2.2}
+  
+\begin{problem}[6]
+  Negate each of the following and simplify the resulting statement
+\end{problem}
+
+\begin{subproblem}[2]
+  $(p \wedge q) \to r$
+\end{subproblem}
+
+\begin{answer}
+\begin{align*}
+  \neg [(p \wedge q) \to r]
+  = p \wedge q \wedge \neg r 
+\end{align*}
+  %
+  As $\neg(a \implies b) = a \wedge \neg b$ I am not sure how to expand on the calculations..
+\end{answer}
+
+\begin{subproblem}
+  $p \vee q \vee (\neg p \wedge \neg q \wedge r)$
+\end{subproblem}
+
+\begin{answer}
+\begin{align*}
+  \neg \left[ p \vee q \vee (\neg p \wedge \neg q \wedge r)\right] 
+  & = \neg p \wedge \neg q \wedge \neg (\neg p \wedge \neg q \wedge r) \\
+  & = \neg p \wedge \neg q \wedge (p \vee q \vee \neg r)  \\
+  & = \neg p \wedge \neg q \wedge \neg r
+\end{align*}
+  %
+  Used DeMorgans laws in the first equality and removed inverses in the second.
+\end{answer}
+
+
+\begin{problem}[7]
+  \begin{subproblem}
+      If $p$, $q$ are primitive statements, prove that
+      %
+      \begin{equation*}
+        (\neg p \vee q) \wedge (p \wedge (p \wedge q)) \ \leftrightarrow \ (p \wedge q)
+      \end{equation*}
+  \end{subproblem}%
+\end{problem}
+
+\begin{answer}
+\begin{align*}
+  (\neg p \vee q) \wedge (p \wedge (p \wedge q))
+  \ \Leftrightarrow \ & (\neg p \vee q) \wedge ((p \wedge p) \wedge q) && \text{Commutative laws}\\ 
+  \ \Leftrightarrow \ & (\neg p \vee q) \wedge (p \wedge q) && \text{Idempotent laws}\\ 
+  \ \Leftrightarrow \ & [ (\neg p \wedge p) \vee (q \wedge p) ] \wedge q && \text{Distributive laws}\\
+  \ \Leftrightarrow \ & [ F_0 \vee (q \wedge p) ] \wedge q && \text{Inverse laws}\\
+  \ \Leftrightarrow \ & [ (q \wedge p) ] \wedge q && \text{Identity laws}\\
+  \ \Leftrightarrow \ & p \wedge (q \wedge q)  && \text{Commutative laws}\\
+  \ \Leftrightarrow \ &  (p \wedge q) && \text{Idempotent laws}\\
+\end{align*}
+% 
+Alternatively the statement follows from the table below
+ 
+\begin{tabular}{L L L L L L L}
+  \toprule
+  p & q & (\neg p \vee q) & (p \wedge (p \wedge q))
+  &(\neg p \vee q) \wedge (p \wedge (p \wedge q)) & (p \wedge q)\\
+  \midrule
+  \F & \F & \T & \F & \F & \F \\
+  \F & \T & \T & \F & \F & \F \\
+  \T & \F & \F & \F & \F & \F \\
+  \T & \T & \T & \T & \T & \T \\
+  \bottomrule
+\end{tabular}
+\end{answer}
+
+\begin{subproblem}
+  Write the dual of the logical equivalence in \textbf{a)}.
+\end{subproblem}
+
+\begin{answer}
+The dual of a compound proposition that contains only the logical operators $\vee$
+, $\wedge$ , and $\neg$ is the compound proposition obtained by replacing each
+$\vee$ by $\wedge$
+, each $\wedge$ by $\vee$ , each $T_0$ by $F_0$ , and each $F_0$ by $T_0$
+  %
+\begin{equation*}
+  (\neg p \wedge q) \vee (p \wedge (p \wedge q)) \leftrightarrow (p \vee q).
+\end{equation*}
+\end{answer}
+
+\begin{problem}[18]
+  Give the reasons for earch step in the following simplifications of compound
+  statements
+      \begin{flalign*}
+        \textbf{\stepcounter{subCounter}\alph{subCounter})}
+        && & [(p \vee q) \wedge (p \vee \neg q)] \vee q && \textbf{Reasons}\\
+        && \Leftrightarrow \ & [p \vee (q \wedge \neg q)] \vee q &&
+        \ans{\text{Idempotent \& Commutative \& Distributive laws}}\\
+        && \Leftrightarrow \ & (p \vee F_0 ) \vee q && \ans{\text{Inverse Laws}}\\
+        && \Leftrightarrow \ & p \vee q && \ans{\text{Identity laws}}
+     \end{flalign*}%
+\end{problem}
+
+\end{document}

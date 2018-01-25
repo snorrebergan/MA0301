@@ -1,0 +1,36 @@
+\documentclass[tikz]{standalone}
+
+\usetikzlibrary{matrix}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes,
+  row sep=3em,
+  column sep=4em,
+  minimum width=2em,
+  nodes in empty cells, 
+  nodes={anchor=center}]
+  {
+      &      & p &        &  p & r & t &  \\
+    T &    p &   &  q     &    &   &   &  T \\
+      &    p & q & \neg r &    & t &   &   \\
+  };
+  \draw (m-2-1.east) -- ++(2em,0) |- (m-1-3) -- (m-1-4.east) -- ++(1em,0) |- (m-2-4);
+  \draw (m-2-1.east) -- ++(2em,0) |- (m-3-2) -- (m-3-3) -- (m-3-4) --%
+        (m-3-4.east) -- ++(1em,0) |- (m-2-4);
+  \draw (m-2-1.east) -- (m-2-2) -- (m-2-4) -- (m-2-4.east) -- ++(3em,0) |- (m-1-5);
+
+  \draw (m-1-5) -- (m-1-6) -- (m-1-7) -- (m-1-7.east) -- ++(2em,0) |- (m-2-8);
+  \draw (m-2-4.east) -- ++(3em,0) |- (m-3-5.center) -- (m-3-6) -- (m-3-7.east) --%
+        ++(2em,0) |- (m-2-8);
+  % \draw (m-3-4.west) -- ++(-2em,0) |- (m-2-3);
+  % \draw ([xshift=2em]m-3-1.east) |- (m-4-2) -- (m-4-3);
+  % \draw ([xshift=-2em]m-3-4.west) |- (m-4-3);
+  % \draw (m-3-2.east) -- ++(2.5em,0) |- (m-5-2);
+  % \draw (m-5-2.west) -- ++(-2.5em,0) |- (m-3-2);
+  % \draw (m-1-3.east) -- ++(2.5em,0) |- (m-3-3);
+  % \draw (m-3-3.west) -- ++(-2.5em,0) |- (m-1-3);
+\end{tikzpicture}
+
+\end{document}
